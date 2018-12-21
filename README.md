@@ -7,4 +7,4 @@
 该博客主要分为两大部分，用户和管理员。用户可以在注册登录之后发布博文，而管理员可以对用户发布的博文和评论进行修改。
 具体的页面展示如下图：
 ```
-![image](https://github.com/kaixuanliang/SSM-Blog/blob/master/src/main/webapp/static/induction/userBlog.png)
+<div align="center">![image](https://github.com/kaixuanliang/SSM-Blog/blob/master/src/main/webapp/static/induction/userBlog.png)</div>
