@@ -5,14 +5,24 @@
 <head>
     <meta charset="UTF-8">
     <title>博客列表</title>
+    <%
+        pageContext.setAttribute("APP_PATH", request.getContextPath());
+    %>
+
+    <script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
+    <link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
 </head>
-<body>
-<div style="margin-right: 25px; float: left;margin-left: 150px;">
+
+<body class="inner-container">
+<div style="margin-left: 150px;" style="width: 810px">
     <table class="table table-bordered" style="width: 800px;background: #FFFFFF">
         <tr>
             <td>
                 <div style="float: left; margin-right: 70px;width: 200px">
-                    <a class="focus" href="article.html">
+                    <a class="focus" href="www.baidu.com" target="_blank">
                         <img src="static/images/1.jpg" style="width: 266px; height: 150px;">
                     </a>
                 </div>

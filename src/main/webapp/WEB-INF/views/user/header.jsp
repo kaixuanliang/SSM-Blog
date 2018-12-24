@@ -6,19 +6,14 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>博客导航栏</title>
-	<%
-		pageContext.setAttribute("APP_PATH", request.getContextPath());
-	%>
 
-	<script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
-	<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
-	<script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
-	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
-
-	<link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
+    <script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
 </head>
 
-<body style="background: #F5F6F7">
+<body style="background: #FFFFFF">
 	<div>
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 			<div class="container"  style="text-align:center">

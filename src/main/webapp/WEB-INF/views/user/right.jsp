@@ -5,9 +5,19 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>右侧公告栏</title>
+
+	<%
+		pageContext.setAttribute("APP_PATH", request.getContextPath());
+	%>
+
+	<script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
+	<link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
 </head>
-<body>
-	<table class="table table-bordered" style="width: 270px; margin-bottom: 25px">
+<body class="inner-container">
+	<table class="table table-bordered" style="width: 270px;">
 		<tr>
 			<td style="background: #3D4450">
 				<strong>
