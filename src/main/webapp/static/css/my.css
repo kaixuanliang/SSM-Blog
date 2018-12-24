@@ -17,3 +17,17 @@
   overflow: hidden;
 }
 
+.inner-container {
+    position: absolute; left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+/* for Chrome 只针对谷歌浏览器*/
+.inner-container::-webkit-scrollbar {
+    display: none;
+}
+.outer-container {
+    position: relative;
+    overflow: hidden;
+}
+
