@@ -6,11 +6,15 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>博客导航栏</title>
-
+    <%
+        pageContext.setAttribute("APP_PATH", request.getContextPath());
+    %>
     <script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
     <script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/page.js"></script>
+
 </head>
 
 <body style="background: #FFFFFF">
@@ -18,27 +22,36 @@
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 			<div class="container"  style="text-align:center">
 				<div class="navbar-header">
-					<a class="active navbar-brand" href="main">SSM-Blog首页</a>
+					<a class="active navbar-brand" href="javascript:void(0)" id="homePage" onclick="toHomePage()">SSM-Blog首页</a>
 				</div>
 
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="test">博客频道<span class="sr-only"></span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章分类<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)" class="text-center" onclick="toHomePage()">C语言</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" class="text-center">C++</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" class="text-center">Java</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" class="text-center">Web</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" class="text-center">SSM</a></li>
+                            </ul>
+                        </li>
 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-haspopup="true"
-							aria-expanded="false">资源下载<span class="caret"></span></a>
+						<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">资源下载<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">One more separated link</a></li>
-							</ul></li>
-						<li><a href="#">网站用户地图</a></li>
+								<li><a href="javascript:void(0)" onclick="lkxTest()" class="text-center">软件资源</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" class="text-center">视频资源</a></li>
+							</ul>
+                        </li>
+
+						<li><a href="#">网站地图</a></li>
 						<li><a href="#">时间轴</a></li>
 					</ul>
 					<div class="navbar-form navbar-right">		
@@ -84,7 +97,7 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel"><img src="static/images/login.jpg"></h4>
+					<h4 class="modal-title" id="myModalLabel"><img src="static/images/login.png"></h4>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="loginForm">
@@ -129,7 +142,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 					<h4 class="modal-title" id="myModalLabel1">
-						<img src="static/images/register.jpg">
+						<img src="static/images/register.png">
 					</h4>
 				</div>
 				<div class="modal-body" id="registerForm">
