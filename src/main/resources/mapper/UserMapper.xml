@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.ssm.blog.dao.IUserDao">
+    <resultMap id="selUser" type="com.ssm.blog.bean.User">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="checkCode" column="check_code"/>
+        <result property="imgPath" column="img_path"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
 
-    <select id="selectUser" resultType="User" parameterType="long">
-        SELECT * FROM user WHERE user_id = #{userId}
+    <select id="checkEmail" resultType="int">
+        SELECT COUNT(user_id) FROM user WHERE email = #{email}
     </select>
+
+    <insert id="insertEmailAndCode">
+        INSERT INTO user(user_id,email, check_code)
+        VALUES(UUID(),#{email},#{checkCode})
+    </insert>
+
+    <select id="verifyCheckCode" resultType="int">
+        SELECT COUNT(user_id) FROM user WHERE email = #{email} and check_code = #{checkCode}
+    </select>
+
+    <update id="userRegister">
+        UPDATE user SET password = #{password},create_time = now() WHERE email = #{email}
+    </update>
+
 
 </mapper>
