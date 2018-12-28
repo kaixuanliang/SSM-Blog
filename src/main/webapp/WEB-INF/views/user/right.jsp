@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
 	<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
-	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
 	<link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
 </head>
 <body class="inner-container">

@@ -14,7 +14,12 @@
     <script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
     <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/page.js"></script>
+    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrapValidator.min.css">
+    <script type="text/javascript" src="${APP_PATH}/static/js/bootstrapValidator.min.js"></script>
 
+	<link rel="stylesheet" href="${APP_PATH}/static/css/toastr.css">
+	<script type="text/javascript" src="${APP_PATH}/static/js/toastr.min.js"></script>
+	<link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
 </head>
 
 <body style="background: #FFFFFF">
@@ -138,27 +143,25 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
-					</button>
+					</button>--%>
 					<h4 class="modal-title" id="myModalLabel1">
 						<img src="static/images/register.png">
 					</h4>
 				</div>
-				<div class="modal-body" id="registerForm">
-					<form class="form-horizontal" >
+				<div class="modal-body">
+					<form class="form-horizontal" id="registerForm">
 						<div class="form-group has-success has-feedback">
 							<div class="row" style="margin-left: 0px">
 								<div class="col-sm-8" id="registerEmailDiv">
 									<div class="input-group" >
 										<span class="input-group-addon">邮箱号码：</span>
-										<input type="email" class="form-control input-lg" id="registerEmail" aria-describedby="inputGroupSuccess2Status">
+										<input type="email" name="email" class="form-control input-lg" id="registerEmail" aria-describedby="inputGroupSuccess2Status">
 									</div>
-									<span class="form-control-feedback" aria-hidden="false"></span>
-									<span id="checkRegisterEmail" class="sr-only">(success)</span>
 								</div>
 								<div class="col-sm-2">
-									<button type="button" class="btn btn-primary btn-lg" id="submitCheckCode">发送邮箱验证码</button>
+									<button type="submit" class="btn btn-primary btn-lg" id="submitCheckCode">发送邮箱验证码</button>
 								</div>
 							</div>
 						</div>
@@ -166,9 +169,9 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon">&nbsp;验&nbsp;证&nbsp;码：</span>
-									<input type="text" class="form-control input-lg" id="checkCode" aria-describedby="inputGroupSuccess2Status">
+									<input type="text" class="form-control input-lg" id="checkCode" name="checkCode" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span id="ccheckCode" class="sr-only">(success)</span>
 							</div>
 						</div>
@@ -176,9 +179,9 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon">设置密码：</span>
-									<input type="password" class="form-control input-lg" id="settingPassword" aria-describedby="inputGroupSuccess2Status">
+									<input type="password" name="password" class="form-control input-lg" id="settingPassword" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span id="checkSettingPassword" class="sr-only">(success)</span>
 							</div>
 						</div>
@@ -186,21 +189,24 @@
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon">重复密码：</span>
-									<input type="password" class="form-control input-lg" id="repeatPassword" aria-describedby="inputGroupSuccess2Status">
+									<input type="password" name="repeatPassword" class="form-control input-lg" id="repeatPassword" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span id="checkRepeatPassword" class="sr-only">(success)</span>
 							</div>
 						</div>
+
+                        <div class="modal-footer form-group">
+                            <button type="button" class="btn btn-default btn-lg" id="resetRegisterButton" data-dismiss="modal" onclick="resetForm()">关闭</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="registerButton" >注册</button>
+                        </div>
 					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="reset" class="btn btn-default btn-lg" id="resetRegisterButton">重置</button>
-					<button type="button" class="btn btn-primary btn-lg" id="registerButton">注册</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
 
 </body>
+
 </html>
