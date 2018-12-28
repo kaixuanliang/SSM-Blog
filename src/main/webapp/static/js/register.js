@@ -1,38 +1,147 @@
-﻿$(document).ready(function () {
-    //alert("${APP_PATH}")
-    $('#registerForm').reset;
+﻿
+$(document).ready(function() {
+    formCheck($('#registerForm'));
+    sendEmailCode($('#submitCheckCode'));
+    userRegister($('#registerButton'));
+});
 
-    $('#submitCheckCode').click(function () {
-        checkEmail();
+//bootstrapValidate前端校验
+function formCheck(fm) {
+     fm
+        .bootstrapValidator({
+            message: '输入无效',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: '邮箱不能为空'
+                        },
+                        emailAddress: {
+                            message: '邮箱地址格式错误'
+                        },
+                        remote:{
+                            message:'该邮箱已被注册，请登录',
+                            url:'/SSM-Blog/checkEmail',
+                            data:{
+                                email:$("#registerEmail").val(),
+                                //registerEmail:$("#registerEmail").val()
+                            }
+                        },
+                        regexp: {
+                            regexp: /^[\w._]+@(qq)\.com(\r\n|\r|\n)?$/,
+                            message: '注册邮箱必须是QQ邮箱'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        }
+                    }
+                },
+                repeatPassword:{
+                    validators:{
+                        notEmpty:{
+                            message: '密码不能为空'
+                        },
+                        identical:{
+                            field:'password',
+                            message:'两次输入的密码不一致'
+                        }
+                    }
+                },
+                checkCode:{
+                    validators:{
+                        notEmpty:{
+                            message: '验证码不能为空'
+                        },
+                        remote:{
+                            message:'验证码错误，请重新输入',
+                            url:'/SSM-Blog/verifyCheckCode',
+                            data:{
+                                email:function () {
+                                    return $('input[name="email"]').val();
+                                },
+                                checkCode:function () {
+                                    return $('input[name="checkCode"]').val();
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+}
+
+//发送邮箱验证码
+function sendEmailCode(btn) {
+    btn.click(function () {
         //发送邮箱验证码
-        //debugger
         $.ajax({
-            type:'POST',
-            url:'./../sendEmailCode',
-            data:{registerEmail:'123'},
-            dataType:'json',
+            type: 'POST',
+            url: '/SSM-Blog/sendEmailCode',
+            data: {email: $("#registerEmail").val(), checkCode: $("#checkCode").val()},
+            dataType: 'json'
+        });
+    });
+}
+
+function userRegister(btn) {
+    btn.click(function () {
+        //发送邮箱验证码
+        $.ajax({
+            type: 'POST',
+            url: '/SSM-Blog/userRegister',
+            data: {
+                email:function () {
+                    return $('input[name="email"]').val();
+                },
+                password:function () {
+                    return $('input[name="password"]').val();
+                }
+            },
+            dataType: 'json',
             success:function (data) {
-                alert(data);
+                if(data.valid == true){
+                    $("#registerModal").modal("hide");
+                    toastr.options.positionClass = 'toast-center-center';
+                    toastr.success("注册成功！");
+                    setTimeout("resetForm()",2000);
+                }else{
+                    toastr.options.positionClass = 'toast-center-center';
+                    toastr.success("注册失败！");
+                    setTimeout("resetForm()",2000);
+                }
             }
         });
     });
-
-});
-//校验邮箱格式是否正确
-function checkEmail() {
-    //正确邮箱的正则表达式
-    var trueEmail = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-    var email = $("#registerEmail").val();
-    if(trueEmail.test(email)){
-        $('#registerEmailDiv').children('span').eq(0).removeClass('glyphicon glyphicon-ok');
-        $('#registerEmailDiv').children('span').eq(0).removeClass('glyphicon glyphicon-remove');
-        $('#registerEmailDiv').children('span').eq(0).addClass('glyphicon glyphicon-ok');
-
-    }else{
-        $('#registerEmailDiv').children('span').eq(0).removeClass('glyphicon glyphicon-ok');
-        $('#registerEmailDiv').children('span').eq(0).removeClass('glyphicon glyphicon-remove');
-        $('#registerEmailDiv').children('span').eq(0).addClass('glyphicon glyphicon-remove');
-        $('#registerForm').reset;
-    }
 }
 
+function resetForm() {
+    window.location.href = window.location.href;
+    /*$('#registerModal').on('hidden.bs.modal', function (){
+        document.getElementById("registerForm").reset();
+    });*/
+}
