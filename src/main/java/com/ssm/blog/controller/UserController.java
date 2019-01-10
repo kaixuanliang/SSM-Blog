@@ -8,14 +8,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @Author: LiangKaiXuan
  * @Date: 2018/12/21 10:51
  */
 @Controller
+@SessionAttributes(value = {"loginEmail","loginPassword"})
 public class UserController {
     @Autowired
     private IUserService userService;
@@ -65,5 +70,38 @@ public class UserController {
         }else{
             return MessageUtil.emailIsUsed(false);
         }
+    }
+
+    @RequestMapping("/checkLoginEmail")
+    @ResponseBody
+    public MessageUtil checkLoginEmail(@RequestParam("loginEmail")String LoginEmail){
+        if(userService.checkEmail(LoginEmail) == false){
+            return MessageUtil.emailIsUsed(true);
+        }else{
+            return MessageUtil.emailIsUsed(false);
+        }
+    }
+
+    //用户登录
+    @RequestMapping("/userLogin")
+    @ResponseBody
+    public MessageUtil userLogin(Map<String,Object>map,@RequestParam("loginEmail")String loginEmail, @RequestParam("loginPassword")String loginPassword){
+        System.out.println(loginEmail+""+loginPassword);
+        if (userService.userLogin(loginEmail,loginPassword) == true){
+            map.put("loginEmail",loginEmail);
+            map.put("loginPassword",loginPassword);
+            return MessageUtil.emailIsUsed(true);
+        }else{
+            return MessageUtil.emailIsUsed(false);
+        }
+    }
+
+    //用户退出
+    @RequestMapping("/quit")
+    public String userQuit(HttpServletRequest request, SessionStatus sessionStatus){
+        request.getSession().removeAttribute("loginEmail");
+        request.getSession().removeAttribute("loginPassword");
+        sessionStatus.setComplete();
+        return "/user/main";
     }
 }

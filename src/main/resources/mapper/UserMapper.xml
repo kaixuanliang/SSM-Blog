@@ -31,5 +31,9 @@
         UPDATE user SET password = #{password},create_time = now() WHERE email = #{email}
     </update>
 
+    <select id="userLogin" resultType="int">
+        SELECT COUNT(user_id) FROM user WHERE email = #{loginEmail} and password = #{loginPassword}
+    </select>
+
 
 </mapper>

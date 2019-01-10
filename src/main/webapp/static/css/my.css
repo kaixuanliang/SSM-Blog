@@ -16,18 +16,74 @@
   justify-content: center;
   overflow: hidden;
 }
-
+/* 只针对谷歌浏览器*/
 .inner-container {
     position: absolute; left: 0;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-/* for Chrome 只针对谷歌浏览器*/
 .inner-container::-webkit-scrollbar {
     display: none;
 }
 .outer-container {
     position: relative;
     overflow: hidden;
+}
+
+/*针对IE10、IE11、IE12，隐藏滚动条*/
+.inner-container {
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+.inner-container::-webkit-scrollbar {
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+.outer-container {
+    -ms-scroll-chaining: chained;
+    -ms-overflow-style: none;
+    -ms-content-zooming: zoom;
+    -ms-scroll-rails: none;
+    -ms-content-zoom-limit-min: 100%;
+    -ms-content-zoom-limit-max: 500%;
+    -ms-scroll-snap-type: proximity;
+    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+    -ms-overflow-style: none;
+    overflow: auto;
+}
+
+/* */
+.inner-container {
+    overflow: -moz-scrollbars-none;
+}
+.inner-container::-webkit-scrollbar {
+    overflow: -moz-scrollbars-none;
+}
+.outer-container {
+    overflow: -moz-scrollbars-none;
+}
+
+
+.toast-center-center {
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -150px;
 }
 
