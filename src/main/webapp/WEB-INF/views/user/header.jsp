@@ -9,16 +9,17 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-    <script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
-    <script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
-    <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
-    <script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/page.js"></script>
-    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrapValidator.min.css">
-    <script type="text/javascript" src="${APP_PATH}/static/js/bootstrapValidator.min.js"></script>
-
-	<link rel="stylesheet" href="${APP_PATH}/static/css/toastr.css">
+	<script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="${APP_PATH}/static/js/toastr.min.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/page.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/static/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="${APP_PATH}/static/js/login.js"></script>
+
+	<link rel="stylesheet" href="${APP_PATH}/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrapValidator.min.css">
+	<link rel="stylesheet" href="${APP_PATH}/static/css/toastr.css">
 	<link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
 </head>
 
@@ -59,15 +60,14 @@
 						<li><a href="#">网站地图</a></li>
 						<li><a href="#">时间轴</a></li>
 					</ul>
-					<div class="navbar-form navbar-right">		
-					 ${sessionScope.blogUser.email}
+					<div class="navbar-form navbar-right">
 						<!-- 如果用户登录之后隐藏这两个按钮 -->
- 						<c:if test="${empty sessionScope.blogUser.email}">
+ 						<c:if test="${empty sessionScope.loginEmail}">
  							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal" id="loginBtn">登录</button>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal" id="resBtn">注册</button>		
 						</c:if>
-						<c:if test="${not empty sessionScope.blogUser.email}">
-							<button class="button_round dropdown-toggle" data-toggle="dropdown"><img src="static/images/timg.jpg" style="width:40px"></button>
+						<c:if test="${not empty sessionScope.loginEmail}">
+							<input class="button_round dropdown-toggle" type="image" src="static/images/avatar.png" data-toggle="dropdown">
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="personalPage" ><i class="glyphicon glyphicon-user"><strong>个人主页</strong></i></a></li>
 								<li class="divider"></li>
@@ -75,10 +75,9 @@
 								<li class="divider"></li>
 								<li><a href="writeBlog"><i class="glyphicon glyphicon-pencil"><strong>发表博客</strong></i></a></li>
 								<li class="divider"></li>
-								<li><a href="#"><i class="glyphicon glyphicon-off"><strong>退出博客</strong></i></a></li>
+								<li><a href="javascript:void(0)"  onclick="resetForm()"><i class="glyphicon glyphicon-off"><strong>退出博客</strong></i></a></li>
 							</ul>
 						</c:if>
-						
 					</div>
 					<div class="navbar-form navbar-right">
 						<div class="form-group">
@@ -98,40 +97,40 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel"><img src="static/images/login.png"></h4>
+					<h4 class="modal-title" id="myModalLabel">
+                        <img src="static/images/login.png">
+                    </h4>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="loginForm">
-						<div class="form-group  has-feedback" id="divemail">
+						<div class="form-group has-success has-feedback">
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon">邮箱：</span>
-									<input type="text" class="form-control input-lg" id="loginEmail" name="loginEmail" iara-describedby="inputGroupSuccess2Status">
+									<input type="email" class="form-control input-lg" id="loginEmail" name="loginEmail" iara-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true" id="spanemail"></span>
-								<span id="checkLoginEmail" class="sr-only"></span>
 							</div>
 						</div>
-						<div class="form-group has-feedback" id="divpassword">
+						<div class="form-group has-feedback has-success">
 							<div class="col-sm-12">
 								<div class="input-group">
 									<span class="input-group-addon">密码：</span>
 									<input type="password" class="form-control input-lg" id="loginPassword" name="loginPassword" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true" id="spanpassword"></span>
-								<span id="checkLoginPassword" class="sr-only">(success)</span>
 							</div>
 						</div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="">记住密码
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-lg" id="resetLoginButton" onclick="resetForm()">关闭</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="loginButton" onclick="login()">登录</button>
+                        </div>
 					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="reset" class="btn btn-default btn-lg" id="resetLoginButton">重置</button>
-					<button type="button" class="btn btn-primary btn-lg" id="loginButton">登录</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -143,9 +142,6 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>--%>
 					<h4 class="modal-title" id="myModalLabel1">
 						<img src="static/images/register.png">
 					</h4>
@@ -171,8 +167,6 @@
 									<span class="input-group-addon">&nbsp;验&nbsp;证&nbsp;码：</span>
 									<input type="text" class="form-control input-lg" id="checkCode" name="checkCode" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-								<span id="ccheckCode" class="sr-only">(success)</span>
 							</div>
 						</div>
 						<div class="form-group has-success has-feedback">
@@ -181,8 +175,6 @@
 									<span class="input-group-addon">设置密码：</span>
 									<input type="password" name="password" class="form-control input-lg" id="settingPassword" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-								<span id="checkSettingPassword" class="sr-only">(success)</span>
 							</div>
 						</div>
 						<div class="form-group has-success has-feedback">
@@ -191,11 +183,8 @@
 									<span class="input-group-addon">重复密码：</span>
 									<input type="password" name="repeatPassword" class="form-control input-lg" id="repeatPassword" aria-describedby="inputGroupSuccess2Status">
 								</div>
-								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-								<span id="checkRepeatPassword" class="sr-only">(success)</span>
 							</div>
 						</div>
-
                         <div class="modal-footer form-group">
                             <button type="button" class="btn btn-default btn-lg" id="resetRegisterButton" data-dismiss="modal" onclick="resetForm()">关闭</button>
                             <button type="submit" class="btn btn-primary btn-lg" id="registerButton" >注册</button>

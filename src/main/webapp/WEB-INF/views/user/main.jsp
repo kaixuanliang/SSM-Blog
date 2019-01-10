@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/my.css">
     <link href="${APP_PATH}/static/images/logo.png" rel="SHORTCUT ICON" />
 
-    <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrapValidator.min.css">
+   <%-- <link rel="stylesheet" href="${APP_PATH}/static/css/bootstrapValidator.min.css">
     <script type="text/javascript" src="${APP_PATH}/static/js/bootstrapValidator.min.js"></script>
-
+--%>
 
 </head>
 <body style="background: #FFFFFF">
