@@ -1,12 +1,11 @@
-﻿
-$(document).ready(function() {
-    formCheck($('#registerForm'));
+﻿$(document).ready(function() {
+    formCheck($('#registerForm'),'/SSM-Blog/checkEmail','该邮箱已被注册，请登录');
     sendEmailCode($('#submitCheckCode'));
     userRegister($('#registerButton'));
 });
 
 //bootstrapValidate前端校验
-function formCheck(fm) {
+function formCheck(fm,url,message) {
      fm
         .bootstrapValidator({
             message: '输入无效',
@@ -25,11 +24,10 @@ function formCheck(fm) {
                             message: '邮箱地址格式错误'
                         },
                         remote:{
-                            message:'该邮箱已被注册，请登录',
-                            url:'/SSM-Blog/checkEmail',
+                            message:message,
+                            url:url,
                             data:{
-                                email:$("#registerEmail").val(),
-                                //registerEmail:$("#registerEmail").val()
+                                email:$("#registerEmail").val()
                             }
                         },
                         regexp: {
@@ -140,8 +138,11 @@ function userRegister(btn) {
 }
 
 function resetForm() {
-    window.location.href = window.location.href;
-    /*$('#registerModal').on('hidden.bs.modal', function (){
-        document.getElementById("registerForm").reset();
-    });*/
+    $.ajax({
+        type:'POST',
+        url: '/SSM-Blog/quit',
+        success:function () {
+            window.location.href = window.location.href;
+        }
+    });
 }
