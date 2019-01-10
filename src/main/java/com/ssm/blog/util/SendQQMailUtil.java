@@ -43,7 +43,7 @@ public class SendQQMailUtil {
         Transport transport = session.getTransport();
 
         //连接自己的邮箱账户
-        transport.connect(fromEmail,"");
+        transport.connect(fromEmail,"kfsnrmfrldisdcdi");
 
         //发送邮件
         transport.sendMessage(message,message.getAllRecipients());
