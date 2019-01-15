@@ -24,12 +24,7 @@
 <body style="background: #FFFFFF">
     <!-- 导航栏 -->
     <jsp:include page="header.jsp"/>
-    <%--<!-- 博客列表页面 -->
-    <jsp:include page="blogList.jsp"></jsp:include>
-    <!-- 右侧公告栏 -->
-    <div style="float:left">
-        <jsp:include page="right.jsp"></jsp:include>
-    </div>--%>
+
     <div class="outer-container" >
         <iframe src="blogList" id="blogListFrame"  scrolling="auto" frameBorder="0" style="width: 100%;height: 100%;margin-top:70px;"></iframe>
     </div>

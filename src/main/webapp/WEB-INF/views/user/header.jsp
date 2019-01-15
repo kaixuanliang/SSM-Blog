@@ -28,7 +28,7 @@
 		<nav class="navbar navbar-fixed-top navbar-inverse">
 			<div class="container"  style="text-align:center">
 				<div class="navbar-header">
-					<a class="active navbar-brand" href="javascript:void(0)" id="homePage" onclick="toHomePage()">SSM-Blog首页</a>
+					<a class="active navbar-brand" href="javascript:void(0)" id="homePage" onclick="toBlogList()">SSM-Blog首页</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -36,7 +36,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章分类<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="javascript:void(0)" class="text-center" onclick="toHomePage()">C语言</a></li>
+                                <li><a href="javascript:void(0)" class="text-center" onclick="toBlogList()">C语言</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" class="text-center">C++</a></li>
                                 <li role="separator" class="divider"></li>
@@ -69,13 +69,13 @@
 						<c:if test="${not empty sessionScope.loginEmail}">
 							<input class="button_round dropdown-toggle" type="image" src="static/images/avatar.png" data-toggle="dropdown">
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="personalPage" ><i class="glyphicon glyphicon-user"><strong>个人主页</strong></i></a></li>
+								<li><a href="personalPage" ><i class="glyphicon glyphicon-user text-center"><strong class="text-center">个人主页</strong></i></a></li>
 								<li class="divider"></li>
-								<li><a href="#"><i class="glyphicon glyphicon-cog"><strong>资料设置</strong></i></a></li>
+								<li><a href="#"><i class="glyphicon glyphicon-cog text-center"><strong>资料设置</strong></i></a></li>
 								<li class="divider"></li>
-								<li><a href="writeBlog"><i class="glyphicon glyphicon-pencil"><strong>发表博客</strong></i></a></li>
+								<li><a href="writeBlog"><i class="glyphicon glyphicon-pencil text-center"><strong>发表博客</strong></i></a></li>
 								<li class="divider"></li>
-								<li><a href="javascript:void(0)"  onclick="resetForm()"><i class="glyphicon glyphicon-off"><strong>退出博客</strong></i></a></li>
+								<li><a href="javascript:void(0)"  onclick="resetForm()"><i class="glyphicon glyphicon-off text-center"><strong>退出博客</strong></i></a></li>
 							</ul>
 						</c:if>
 					</div>
