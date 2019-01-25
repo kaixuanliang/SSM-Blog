@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['zh_tw'] = {
 
     // Clear formatting
     "Clear Formatting": "\u6e05\u9664\u683c\u5f0f",
+
+    // Save
+    "Save": "保存",
 
     // Undo, redo
     "Undo": "\u5fa9\u539f",

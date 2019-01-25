@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -83,7 +83,7 @@ $.FE.LANGUAGE['en_ca'] = {
     "Align": "Align",
     "Align Left": "Align Left",
     "Align Center": "Align Centre",
-    "Align Right": "Alight Right",
+    "Align Right": "Align Right",
     "Align Justify": "Align Justify",
     "None": "None",
 
@@ -186,7 +186,10 @@ $.FE.LANGUAGE['en_ca'] = {
     "Insert Horizontal Line": "Insert Horizontal Line",
 
     // Clear formatting
-    "Clear Formatting": "Cell Formatting",
+    "Clear Formatting": "Clear Formatting",
+
+    // Save
+    "Save": "Save",
 
     // Undo, redo
     "Undo": "Undo",

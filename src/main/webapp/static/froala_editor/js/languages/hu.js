@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['hu'] = {
 
     // Clear formatting
     "Clear Formatting": "Form\u00e1z\u00e1s elt\u00e1vol\u00edt\u00e1sa",
+
+    // Save
+    "Save": "\u004d\u0065\u006e\u0074\u00e9\u0073",
 
     // Undo, redo
     "Undo": "Visszavon\u00e1s",

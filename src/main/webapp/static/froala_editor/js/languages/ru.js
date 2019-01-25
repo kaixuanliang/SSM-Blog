@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['ru'] = {
 
     // Clear formatting
     "Clear Formatting": "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0444\u043e\u0440\u043c\u0430\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+
+    // Save
+    "Save": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c",
 
     // Undo, redo
     "Undo": "\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c",

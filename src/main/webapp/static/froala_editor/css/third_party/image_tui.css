@@ -20,18 +20,23 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-.fr-line-breaker {
-  cursor: text;
-  border-top: 1px solid #1e88e5;
+.tui-image-editor-container {
   position: fixed;
-  z-index: 2;
-  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 }
-.fr-line-breaker.fr-visible {
-  display: block;
+.tui-editor-cancel-btn {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  color: #222;
 }
-.fr-line-breaker a.fr-floating-btn {
-  position: absolute;
-  left: calc(50% - (32px / 2));
-  top: -16px;
+.tui-editor-save-btn {
+  background-color: #fdba3b;
+  border: 1px solid #fdba3b;
+  color: #ffffff;
 }

@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -244,6 +244,9 @@ $.FE.LANGUAGE['sk'] = {
 
     // Clear formatting
     "Clear Formatting": "Vymaza\u0165 formatovanie",
+
+    // Save
+    "Save": "\u0055\u006c\u006f\u017e\u0069\u0165",
 
     // Undo, redo
     "Undo": "Sp\u00e4\u0165",

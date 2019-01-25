@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -183,6 +183,9 @@ $.FE.LANGUAGE['vi'] = {
 
     // Clear formatting
     "Clear Formatting": "X\u00F3a \u0111\u1ECBnh d\u1EA1ng",
+
+    // Save
+    "Save": "Save",
 
     // Undo, redo
     "Undo": "Undo",

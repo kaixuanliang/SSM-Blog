@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['pl'] = {
 
     // Clear formatting
     "Clear Formatting": "Usu\u0144 formatowanie",
+
+    // Save
+    "Save": "\u005a\u0061\u0070\u0069\u0073\u0061\u0107",
 
     // Undo, redo
     "Undo": "Cofnij",

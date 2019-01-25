@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['sr'] = {
 
     // Clear formatting
     "Clear Formatting": "Brisanje oblikovanja",
+
+    // Save
+    "Save": "\u0441\u0430\u0447\u0443\u0432\u0430\u0442\u0438",
 
     // Undo, redo
     "Undo": "Opozovi radnju",

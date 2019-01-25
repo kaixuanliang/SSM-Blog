@@ -1,5 +1,5 @@
 /*!
- * froala_editor v2.8.5 (https://www.froala.com/wysiwyg-editor)
+ * froala_editor v2.9.1 (https://www.froala.com/wysiwyg-editor)
  * License https://froala.com/wysiwyg-editor/terms/
  * Copyright 2014-2018 Froala Labs
  */
@@ -243,6 +243,9 @@ $.FE.LANGUAGE['ko'] = {
 
     // Clear formatting
     "Clear Formatting": "\uc11c\uc2dd \uc81c\uac70",
+
+    // Save
+    "Save": "\uad6c\ud558\ub2e4",
 
     // Undo, redo
     "Undo": "\uc2e4\ud589 \ucde8\uc18c",
