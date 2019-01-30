@@ -3,6 +3,9 @@ package com.ssm.blog.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * @Author: LiangKaiXuan
  * @Date: 2018/12/24 9:28
@@ -20,23 +23,30 @@ public class PageController {
         return "/user/right";
     }
 
-    @RequestMapping("/header")
-    public String toHeader(){
-        return "/user/header";
-    }
-
-    @RequestMapping("/homePage")
+    @RequestMapping("/main")
     public String toMain(){
         return "/user/main";
     }
 
-    @RequestMapping("/lkxTest")
-    public String toLkxTest(){
-        return "/user/main";
+    @RequestMapping("/personalPage")
+    public String toHomePage(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if (session.getAttribute("loginEmail") == null || session.getAttribute("loginEmail")==""){
+            return "/user/main";
+        }else{
+            return "user/personalPage";
+        }
+
     }
 
-    @RequestMapping("/action")
-    public String action(){
-        return "/user/action";
+    @RequestMapping("/writeBlog")
+    public String toWirteBlog(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if (session.getAttribute("loginEmail") == null || session.getAttribute("loginEmail")==""){
+            return "/user/main";
+        }else{
+            return "user/writeBlog";
+        }
     }
+
 }
