@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="${APP_PATH}/static/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${APP_PATH}/static/js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="${APP_PATH}/static/js/toastr.min.js"></script>
-	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/page.js"></script>
+
 	<script charset="UTF-8" type="text/javascript" src="${APP_PATH}/static/js/register.js"></script>
 	<script type="text/javascript" src="${APP_PATH}/static/js/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="${APP_PATH}/static/js/login.js"></script>
@@ -195,6 +195,11 @@
 			</div>
 		</div>
 	</div>
+
+<%--
+	<jsp:include page="blogList.jsp"/>
+--%>
+
 
 </body>
 
